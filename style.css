@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to right bottom, rgb(255, 223, 96), rgb(255, 153, 153)) no-repeat;
+}
+
+.header {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.info {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.grid {
+    margin: 0 auto;
+    margin-top: 20px;
+
+    width: 400px;
+    height: 400px;
+
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.cell {
+    position: relative;
+    background-color: wheat;
+    outline: 1px solid black;
+    width: 33.333%;
+    height: 33.333%;
+}
+
+.mark {
+    width: 50px;
+    height: 50px;
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    outline: 1px solid gray;
+}
+
+.mark.cross {
+    background-color: red;
+}
+
+.mark.oval {
+    background-color: blue;
+}
+
+
+.btn-container {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.reset {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
