@@ -70,3 +70,7 @@ body {
     transform: translateX(-50%);
 }
 
+.cell.test {
+    background-color: black;
+}
+
