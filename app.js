@@ -124,7 +124,7 @@ function initGame() {
     endGame = false;
     turn = 2;
     grid = [
-        [0, 0, 0],
+        [1, 0, 2],
         [0, 0, 0],
         [0, 0, 0]
     ];
@@ -140,8 +140,10 @@ function updateMarks() {
         while (j != size) {
             $(toString(i, j) + " > .mark").removeClass(o);
             $(toString(i, j) + " > .mark").removeClass(x);
+            $(toString(i, j) + " > .cross-patch").removeClass("visiable");
             if (grid[i][j] === 1) {
                 $(toString(i, j) + " > .mark").addClass(x);
+                $(toString(i, j) + " > .cross-patch").addClass("visiable");
             }
             if (grid[i][j] === 2) {
                 $(toString(i, j) + " > .mark").addClass(o);

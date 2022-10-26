@@ -39,22 +39,93 @@ body {
 }
 
 .mark {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    outline: 1px solid gray;
 }
 
 .mark.cross {
-    background-color: red;
+    position: relative;
+}
+
+.mark.cross::before, 
+.mark.cross::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: grey;
+    border-radius: 20px;
+}
+
+.mark.cross::before {
+    transform: rotate(45deg);
+    left: 50%;
+    width: 20%;
+    margin-left: -10%;
+    height: 100%;
+    box-shadow: 3px 3px black;
+}
+
+.mark.cross::after {
+    transform: rotate(45deg);
+    top: 50%;
+    height: 20%;
+    margin-top: -10%;
+    width: 100%;
+    box-shadow: 3px 3px black;
+}
+
+.cross-patch {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 20px;
+    margin: 51px 0px 0px 53px;
+    height: 39px;
+    border-radius: 20px;
+    transform: rotate(45deg);
+    background-color: gray;
+    z-index: 10000;
+}
+
+.cross-patch.visiable {
+    display: block;
 }
 
 .mark.oval {
-    background-color: blue;
+    position: relative;
+}
+
+.mark.oval::before, 
+.mark.oval::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: grey;
+    border-radius: 100px;
+}
+
+.mark.oval::before {
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 3px black;
+}
+
+.mark.oval::after {
+    background: wheat;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px -3px black;
 }
 
 
