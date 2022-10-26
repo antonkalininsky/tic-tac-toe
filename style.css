@@ -23,15 +23,18 @@ body {
     font-family: 'Varela Round', serif;
 }
 
+/* grid */
 .grid {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin: 0 auto;
-    margin-top: 40px;
-
     width: 400px;
     height: 400px;
+    
+    
+    margin-top: 40px;
+
+
 
     display: flex;
     flex-wrap: wrap;
@@ -79,11 +82,18 @@ body {
 .mark {
     width: 100px;
     height: 100px;
+
+    background-color: transparent;
+    border-radius: 100px;
     
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.mark.winner {
+    background-color: rgb(220, 50, 50);
 }
 
 .mark.cross {
@@ -166,7 +176,7 @@ body {
     box-shadow: 0px -3px black;
 }
 
-
+/* reset button */
 .btn-container {
     margin-top: 500px;
     position: relative;

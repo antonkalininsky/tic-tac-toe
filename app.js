@@ -52,10 +52,10 @@ function updateMsg() {
             } else {
                 target.append("2");
             }
-            target.append(" won!");    
+            target.append(" won!");
         }
 
-        
+
     } else {
         target.append("Player's ");
         if (turn === 1) {
@@ -72,6 +72,9 @@ function checkWin() {
     let j = 0;
     while (i != size) {
         if (grid[i][j] != 0 && grid[i][j] === grid[i][j + 1] && grid[i][j + 1] === grid[i][j + 2]) {
+            colorize(i, j, true);
+            colorize(i, j + 1, true);
+            colorize(i, j + 2, true);
             endGame = true;
             return;
         }
@@ -82,6 +85,9 @@ function checkWin() {
     j = 0;
     while (j != size) {
         if (grid[i][j] != 0 && grid[i][j] === grid[i + 1][j] && grid[i + 1][j] === grid[i + 2][j]) {
+            colorize(i, j, true);
+            colorize(i + 1, j, true);
+            colorize(i + 2, j, true);
             endGame = true;
             return;
         }
@@ -89,8 +95,19 @@ function checkWin() {
     }
 
     if (grid[1][1] != 0 &&
-        (grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2] ||
-        grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0])) {
+        grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0]) {
+        colorize(0, 2, true);
+        colorize(1, 1, true);
+        colorize(2, 0, true);
+        endGame = true;
+        return;
+    }
+
+    if (grid[1][1] != 0 &&
+        (grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2])) {
+        colorize(0, 0, true);
+        colorize(1, 1, true);
+        colorize(2, 2, true);
         endGame = true;
         return;
     }
@@ -129,8 +146,25 @@ function initGame() {
         [0, 0, 0]
     ];
     stepCou = 0;
+
+    let i = 0;
+    while (i != size) {
+        let j = 0;
+        while (j != size) {
+            colorize(i, j, false);
+            j++;
+        }
+        i++;
+    }
 }
 
+function colorize(i, j, col) {
+    if (col) {
+        $(toString(i, j) + " > .mark").addClass("winner");
+    } else {
+        $(toString(i, j) + " > .mark").removeClass("winner");
+    }
+}
 
 
 function updateMarks() {
