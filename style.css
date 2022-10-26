@@ -4,7 +4,7 @@
 }
 
 body {
-    height: 100vh;
+    height: calc(100vh - 20px);
     background: linear-gradient(to right bottom, rgb(255, 223, 96), rgb(255, 153, 153)) no-repeat;
 }
 
