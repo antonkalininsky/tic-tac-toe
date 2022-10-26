@@ -42,7 +42,7 @@ function updateMsg() {
     let target = $(".info");
     target.empty();
     if (endGame) {
-        target.append("Game over! ");
+        target.append("<strong>Game over!</strong> ");
         if (stepCou === 9) {
             target.append("Draw!");
         } else {
@@ -124,7 +124,7 @@ function initGame() {
     endGame = false;
     turn = 2;
     grid = [
-        [1, 0, 2],
+        [0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]
     ];
