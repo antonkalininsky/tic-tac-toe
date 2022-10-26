@@ -9,6 +9,7 @@ let size = 3;
 let turn = 2;
 let endGame = false;
 let stepCou = 0;
+let draw = false;
 
 $(document).ready(function () {
     // initialization
@@ -43,7 +44,7 @@ function updateMsg() {
     target.empty();
     if (endGame) {
         target.append("<strong>Game over!</strong> ");
-        if (stepCou === 9) {
+        if (draw) {
             target.append("Draw!");
         } else {
             target.append("Player ");
@@ -112,7 +113,7 @@ function checkWin() {
         return;
     }
 
-    if (stepCou === 9) {
+    if (stepCou === 9 && endGame != true) {
         endGame = true;
         draw = true;
     }
@@ -138,6 +139,7 @@ function makeTurn(Y, X) {
 
 
 function initGame() {
+    draw = false;
     endGame = false;
     turn = 2;
     grid = [
